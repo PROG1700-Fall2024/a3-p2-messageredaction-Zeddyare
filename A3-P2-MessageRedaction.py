@@ -14,9 +14,10 @@ def phraseInput():
 #input letters to remove
 def letterInput():
     letters = input("\nType a comma-separated list of letters to redact: ") 
-    letters = letters.replace(",.-_: ", "")
+    for i in ",.-_: ":
+        letters = letters.replace(i,"") #used GPT to find out why replace was not working here. Needed to create a way to allow it to select all desired characters 
     letters = letters.strip()  
-    return letters 
+    return letters      #watching this work finally was beautiful 
 
 #greeting/directions
 def greeting():
@@ -41,7 +42,7 @@ def slashingProtocol():
             if i != "," and i != " ":
                 phrase = phrase.replace(i,"_")
             else: 
-                pass
+                pass        #this was the only way I could figure out how to get it to work if there was any commas in the phrase OR any spaces in the phrase EDIT: redundant now, leaving it in for that sake 
         removed = phrase.count("_")
         print(f"Number of letters redacted: {removed}")
         print(f"Redacted phrase: {phrase}\n") 
@@ -55,11 +56,6 @@ def MessageRedaction():
     #output of redacted phrase
     greeting()
     slashingProtocol()
-
-
-
-
-
 
     # YOUR CODE ENDS HERE
 

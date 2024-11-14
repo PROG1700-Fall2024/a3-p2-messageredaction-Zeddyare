@@ -2,13 +2,52 @@
 #Description:   Design and write a program that counts and removes all desired letters from 
 #               any user-entered sentence or phrase.
 
-#Student #:     
-#Student Name:  
+#Student #: W0433704
+#Student Name: Zachary Rudolf
 
-def main():
-    # YOUR CODE STARTS HERE, each line must be indented (one tab)
+#variable initializing 
+phrase=""
+letters=""
+def phraseInput():
+    phrase=input("Type a phrase (or 'quit' to exit program): ")
+    return phrase
+#input letters to remove
+def letterInput():
+    letters=input("\nType a comma-separated (no spaces) list of letters to redact: ") 
+    letters.replace(",-_.","")  
+    return letters
 
+#greeting/directions
+def greeting():
+    print("Welcome to the letter-slasher!\n")
 
+def slashingProtocol():
+    quit=False
+    while quit==False: 
+        phrase=phraseInput() 
+        if phrase.lower()=="quit":
+            quit=True
+            print("\nThanks for slashing!") 
+            break 
+        letters=letterInput() 
+     #removal loop 
+        for i in letters.upper(): 
+            phrase=phrase.replace(i,"_") 
+        for i in letters.lower():
+            phrase=phrase.replace(i,"_")
+        removed=phrase.count("_")
+        print(f"Number of letters redacted: {removed}")
+        print(f"Redacted phrase: {phrase}\n") 
+
+def MessageRedaction():
+    # YOUR CODE STARTS HERE, each line must be indented (one tab) 
+    #input phrase while loop
+    
+    #output of redacted letters
+
+    #output of redacted phrase
+    greeting()
+    slashingProtocol()
 
 
 
@@ -17,4 +56,4 @@ def main():
 
     # YOUR CODE ENDS HERE
 
-main()
+MessageRedaction() 

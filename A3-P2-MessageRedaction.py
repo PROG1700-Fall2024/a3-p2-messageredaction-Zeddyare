@@ -6,42 +6,43 @@
 #Student Name: Zachary Rudolf
 
 #variable initializing 
-phrase=""
-letters=""
+phrase = ""
+letters = ""
 def phraseInput():
-    phrase=input("Type a phrase (or 'quit' to exit program): ")
+    phrase = input("Type a phrase (or 'quit' to exit program): ")
     return phrase
 #input letters to remove
 def letterInput():
-    letters=input("\nType a comma-separated (no spaces) list of letters to redact: ") 
-    letters.replace(",-_. ","") 
-    return letters
+    letters = input("\nType a comma-separated list of letters to redact: ") 
+    letters = letters.replace(",.-_: ", "")
+    letters = letters.strip()  
+    return letters 
 
 #greeting/directions
 def greeting():
     print("Welcome to the letter-slasher!\n")
 
 def slashingProtocol():
-    quit=False
-    while quit==False: 
-        phrase=phraseInput() 
-        if phrase.lower()=="quit":
-            quit=True
+    quit = False
+    while quit == False: 
+        phrase = phraseInput() 
+        if phrase.lower() == "quit":
+            quit = True
             print("\nThanks for slashing!") 
             break 
-        letters=letterInput()
+        letters = letterInput()
      #removal loop 
         for i in letters.upper(): 
-            if i!="," and i!=" ":
-                phrase=phrase.replace(i,"_")
+            if i != "," and i != " ":
+                phrase = phrase.replace(i,"_")
             else: 
                 pass
         for i in letters.lower():
-            if i!="," and i!=" ":
-                phrase=phrase.replace(i,"_")
+            if i != "," and i != " ":
+                phrase = phrase.replace(i,"_")
             else: 
                 pass
-        removed=phrase.count("_")
+        removed = phrase.count("_")
         print(f"Number of letters redacted: {removed}")
         print(f"Redacted phrase: {phrase}\n") 
 

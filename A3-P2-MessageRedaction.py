@@ -14,7 +14,7 @@ def phraseInput():
 #input letters to remove
 def letterInput():
     letters=input("\nType a comma-separated (no spaces) list of letters to redact: ") 
-    letters.replace(",-_.","")  
+    letters.replace(",-_. ","") 
     return letters
 
 #greeting/directions
@@ -29,12 +29,18 @@ def slashingProtocol():
             quit=True
             print("\nThanks for slashing!") 
             break 
-        letters=letterInput() 
+        letters=letterInput()
      #removal loop 
         for i in letters.upper(): 
-            phrase=phrase.replace(i,"_") 
+            if i!="," and i!=" ":
+                phrase=phrase.replace(i,"_")
+            else: 
+                pass
         for i in letters.lower():
-            phrase=phrase.replace(i,"_")
+            if i!="," and i!=" ":
+                phrase=phrase.replace(i,"_")
+            else: 
+                pass
         removed=phrase.count("_")
         print(f"Number of letters redacted: {removed}")
         print(f"Redacted phrase: {phrase}\n") 

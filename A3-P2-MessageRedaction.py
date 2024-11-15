@@ -50,13 +50,10 @@ def slashingProtocol():
 def MessageRedaction():
     # YOUR CODE STARTS HERE, each line must be indented (one tab) 
     #input phrase while loop
-    
-    #output of redacted letters
 
     #output of redacted phrase
     greeting()
     slashingProtocol()
-
     # YOUR CODE ENDS HERE
 
 MessageRedaction() 
